@@ -1,7 +1,7 @@
 # Project Report: CareerMatch — Smart Internship & Job Recommendation System
 
 **Course:** Design and Analysis of Algorithms (DAA)  
-**Project Name:** CareerMatch (formerly SkillRoute)  
+**Project Name:** CareerMatch  
 **Project Type:** Algorithmic Decision-Support Full-Stack Web Application  
 
 ---

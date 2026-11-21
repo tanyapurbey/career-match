@@ -4,18 +4,24 @@
 
 ![CareerMatch Banner](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80)
 
-**A Full-Stack Algorithmic Decision-Support Application for College Design and Analysis of Algorithms (DAA)**
+**A Full-Stack Algorithmic Decision-Support Web Application for Design and Analysis of Algorithms (DAA)**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://career-match-roan.vercel.app)
-[![Backend API](https://img.shields.io/badge/Backend%20API-Render-46E3B7?style=for-the-badge&logo=render)](https://career-match-api-hc5x.onrender.com/api/health)
-[![Tests](https://img.shields.io/badge/DAA%20Tests-21%20Passed-10b981?style=for-the-badge&logo=node.js)](https://github.com/tanyapurbey/career-match)
-[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL%20%2B%20Prisma-4169E1?style=for-the-badge&logo=postgresql)](https://www.prisma.io)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
-### 🌐 [Click Here to Open the Live Demo](https://career-match-roan.vercel.app)
-**Live Backend Health:** `https://career-match-api-hc5x.onrender.com/api/health`
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-https%3A%2F%2Fcareer--match--roan.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://career-match-roan.vercel.app)
+[![Backend API](https://img.shields.io/badge/Backend%20API-https%3A%2F%2Fcareer--match--api--hc5x.onrender.com-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://career-match-api-hc5x.onrender.com)
+[![Tests](https://img.shields.io/badge/DAA%20Tests-21%20Passed-10b981?style=for-the-badge&logo=node.js&logoColor=white)](https://github.com/tanyapurbey/career-match)
+[![Database](https://img.shields.io/badge/Database-PostgreSQL%20%2B%20Prisma-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.prisma.io)
 
 </div>
+
+---
+
+### 🚀 Live Project Links
+
+| Resource | Live Link | Status |
+| :--- | :--- | :--- |
+| 🌐 **Live Web Application (Frontend)** | [**https://career-match-roan.vercel.app**](https://career-match-roan.vercel.app) | `Online (Vercel)` |
+| ⚙️ **Backend REST API Server** | [**https://career-match-api-hc5x.onrender.com**](https://career-match-api-hc5x.onrender.com) | `Online (Render)` |
+| 🩺 **API Health Check Endpoint** | [**https://career-match-api-hc5x.onrender.com/api/health**](https://career-match-api-hc5x.onrender.com/api/health) | `{"status":"OK"}` |
 
 ---
 
