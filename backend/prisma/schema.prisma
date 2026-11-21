@@ -1,0 +1,122 @@
+// CareerMatch Prisma Schema
+// Default datasource: SQLite for immediate local execution with zero config
+// To switch to PostgreSQL: see prisma/schema.postgres.prisma or change provider to "postgresql"
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Student {
+  id                    String             @id @default(uuid())
+  fullName              String
+  email                 String             @unique
+  phone                 String?
+  college               String
+  degree                String
+  branch                String
+  graduationYear        Int
+  cgpa                  Float
+  availableHoursPerWeek Float              @default(15.0)
+  createdAt             DateTime           @default(now())
+  updatedAt             DateTime           @updatedAt
+
+  skills                StudentSkill[]
+  applications          JobApplication[]
+  savedJobs             SavedJob[]
+  preference            StudentPreference?
+}
+
+model Skill {
+  id           String         @id @default(uuid())
+  name         String         @unique
+  category     String         // e.g., "Programming Languages", "Frameworks", "Databases", "Tools", "Other"
+  studentSkills StudentSkill[]
+}
+
+model StudentSkill {
+  id               String   @id @default(uuid())
+  studentId        String
+  skillId          String
+  proficiencyLevel String   @default("Intermediate") // Beginner, Intermediate, Advanced
+
+  student          Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  skill            Skill    @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, skillId])
+}
+
+model Job {
+  id                          String           @id @default(uuid())
+  title                       String
+  companyName                 String
+  companyLogo                 String?
+  description                 String
+  responsibilities            String           // Stored as formatted string or JSON list
+  location                    String           // e.g., "Bengaluru", "Remote", "Pune"
+  workMode                    String           // "Remote", "Hybrid", "On-site"
+  jobType                     String           // "Internship", "Full-time", "Part-time", "Contract", "Graduate Program"
+  salaryMin                   Int              // Monthly stipend or annual salary
+  salaryMax                   Int
+  salaryCurrency              String           @default("INR")
+  requiredSkills              String           // Comma-separated or JSON list
+  preferredSkills             String           // Comma-separated or JSON list
+  minimumCGPA                 Float            @default(6.0)
+  eligibleDegrees             String           // Comma-separated, e.g. "B.Tech,B.E.,MCA,B.Sc"
+  eligibleGraduationYears     String           // Comma-separated, e.g. "2024,2025,2026,2027"
+  requiredExperience          Int              @default(0) // In years (0 for interns)
+  applicationDeadline         DateTime
+  applicationUrl              String?
+  estimatedApplicationMinutes Int              @default(60) // Weight for Greedy & Knapsack algorithms
+  createdAt                   DateTime         @default(now())
+  updatedAt                   DateTime         @updatedAt
+
+  applications                JobApplication[]
+  savedJobs                   SavedJob[]
+}
+
+model JobApplication {
+  id            String    @id @default(uuid())
+  studentId     String
+  jobId         String
+  status        String    @default("Applied") // "Saved", "Applied", "OA", "Interview", "Offer", "Rejected", "Withdrawn"
+  appliedAt     DateTime  @default(now())
+  notes         String?
+  interviewDate DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  student       Student   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  job           Job       @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, jobId])
+}
+
+model SavedJob {
+  id        String   @id @default(uuid())
+  studentId String
+  jobId     String
+  createdAt DateTime @default(now())
+
+  student   Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, jobId])
+}
+
+model StudentPreference {
+  id                           String   @id @default(uuid())
+  studentId                    String   @unique
+  preferredLocations           String   // Comma-separated, e.g. "Bengaluru,Pune,Remote"
+  preferredJobTypes            String   // Comma-separated, e.g. "Internship,Full-time"
+  preferredWorkModes           String   // Comma-separated, e.g. "Remote,Hybrid"
+  preferredRoles               String   // Comma-separated, e.g. "Backend Developer,Software Engineer"
+  minimumSalary                Int      @default(25000)
+  maximumApplicationsPerWeek   Int      @default(10)
+
+  student                      Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+}

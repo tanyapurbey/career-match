@@ -1,0 +1,23 @@
+{
+  "name": "careermatch",
+  "version": "1.0.0",
+  "description": "CareerMatch — Smart Internship & Job Recommendation System (DAA College Project)",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "seed": "cd backend && npm run prisma:seed",
+    "test": "cd backend && npm test"
+  },
+  "keywords": [
+    "daa",
+    "algorithms",
+    "job-recommendation",
+    "merge-sort",
+    "binary-search",
+    "kmp",
+    "greedy",
+    "dynamic-programming"
+  ],
+  "author": "",
+  "license": "MIT"
+}
